@@ -1,0 +1,7 @@
+﻿.navicon-background-task-lists {
+    background-image: url(images/menu.background-task-lists.png) !important
+}
+
+.navicon-background-task-lists:hover {
+    background-position: 0 -30px !important;
+}

@@ -1,0 +1,15 @@
+﻿
+@model IEnumerable<Piedone.BackgroundTaskViewer.Models.ScdldTasks>
+
+<h1>@Html.TitleForPage(T("Scheduled Tasks").ToString())</h1>
+
+<ul id="tasks"> 
+    @foreach (var bcgrndtask in @Model) 
+    { 
+        <li> 
+            @bcgrndtask.SceduledTaskList.ToString(); 
+        </li> 
+     } 
+</ul>
+
+

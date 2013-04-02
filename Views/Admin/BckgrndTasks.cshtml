@@ -1,0 +1,15 @@
+﻿
+@model IEnumerable<Piedone.BackgroundTaskViewer.Models.BckgrndTask>
+
+<h1>@Html.TitleForPage(T("Background Tasks").ToString())</h1>
+
+<ul id="tasks"> 
+    @foreach (var bcgrndtask in @Model) 
+    { 
+        <li> 
+            @bcgrndtask.BackgroundTask.ToString(); 
+        </li> 
+     } 
+</ul>
+
+
