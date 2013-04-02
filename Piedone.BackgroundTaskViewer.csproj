@@ -111,14 +111,14 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Views\Admin\Index.cshtml" />
-    <Content Include="Views\Admin\BckgrndTasks.cshtml" />
-    <Content Include="Views\Admin\ScdldTasks.cshtml" />
+    <Content Include="Views\Admin\BackgroundTasks.cshtml" />
+    <Content Include="Views\Admin\ScheduledTasks.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminMenu.cs" />
     <Compile Include="Controllers\AdminController.cs" />
-    <Compile Include="Models\BckgrndTask.cs" />
-    <Compile Include="Models\ScdldTasks.cs" />
+    <Compile Include="ViewModels\BackgroundTaskViewModel.cs" />
+    <Compile Include="ViewModels\ScheduledTaskViewModel.cs" />
     <Compile Include="Permissions.cs" />
     <Compile Include="ResourceManifest.cs" />
   </ItemGroup>

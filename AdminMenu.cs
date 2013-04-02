@@ -17,10 +17,10 @@ namespace Piedone.BackgroundTaskViewer
                 .Add(T("Tasks"), "7", item => item
                     .Action("Index", "Admin", new { area = "Piedone.BackgroundTaskViewer" })
                  .Add(T("Background Tasks"),"0", subitem => subitem
-                     .Action("BckgrndTasks", "Admin", new { area = "Piedone.BackgroundTaskViewer" })
+                     .Action("BackgroundTasks", "Admin", new { area = "Piedone.BackgroundTaskViewer" })
                      .LocalNav())
                  .Add(T("Scheduled Tasks"),"1", subitem => subitem
-                     .Action("ScdldTasks", "Admin", new { area = "Piedone.BackgroundTaskViewer" })
+                     .Action("ScheduledTasks", "Admin", new { area = "Piedone.BackgroundTaskViewer" })
                      .LocalNav()));
         }
     }

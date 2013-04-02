@@ -15,29 +15,25 @@ using Orchard.Mvc;
 using Orchard.Security;
 using Orchard.UI.Admin;
 using Orchard.UI.Notify;
-using Piedone.BackgroundTaskViewer.Models;
+using Orchard.Tasks;
+using Piedone.BackgroundTaskViewer.ViewModels;
 using System.Collections.Generic;
+using Orchard.Tasks.Scheduling;
 
 namespace Piedone.BackgroundTaskViewer.Controllers
 {
     [Admin]
     public class AdminController : Controller
     {
-        private readonly IOrchardServices _orchardServices;
-        private readonly IAuthorizer _authorizer;
-        private readonly IContentManager _contentManager;
-        private readonly ITransactionManager _transactionManager;
+        private readonly IEnumerable<IScheduledTask> _scheduledtask;
+        private readonly IEnumerable<IBackgroundTask> _backgroundtask;
 
         public Localizer T { get; set; }
 
-        public AdminController(IOrchardServices orchardServices, ITransactionManager transactionManager)
+        public AdminController(IEnumerable<IScheduledTask> scheduledtask, IEnumerable<IBackgroundTask> backgroundtask)
         {
-            _orchardServices = orchardServices;
-            _authorizer = orchardServices.Authorizer; // If we use a service multiple times it's convenient to store its reference individually
-            _contentManager = orchardServices.ContentManager;
-
-            _transactionManager = transactionManager;
-
+            _scheduledtask = scheduledtask;
+            _backgroundtask = backgroundtask;
             T = NullLocalizer.Instance;
         }
         public ActionResult Index() 
@@ -45,23 +41,24 @@ namespace Piedone.BackgroundTaskViewer.Controllers
             return View();
         }
 
-        public ActionResult BckgrndTasks()
+        public ActionResult BackgroundTasks()
         {
-            var lista = new List<BckgrndTask> 
-            { 
-                new BckgrndTask { BackgroundTask = "egy" },
-                new BckgrndTask { BackgroundTask = "kettő" }
-            };
+            var lista = new List<BackgroundTaskViewModel>();
+
+            foreach (var OneBakcgroundTask in _backgroundtask)
+	        {
+                lista.Add(new BackgroundTaskViewModel { BackgroundTaskName = OneBakcgroundTask.GetType().Name.ToString() });
+	        };
             return View(lista);
         }
 
-        public ActionResult ScdldTasks()
+        public ActionResult ScheduledTasks()
         {
-            var lista = new List<ScdldTasks>
-            {
-                new ScdldTasks{ SceduledTaskList = "három"},
-                new ScdldTasks{ SceduledTaskList = "négy"}
-            };
+            var lista = new List<ScheduledTaskViewModel>();
+            foreach (var OneScheduledTask in _scheduledtask)
+	        {
+                lista.Add(new ScheduledTaskViewModel { ScheduledTaskName = OneScheduledTask.GetType().Name.ToString() });
+	        };
             return View(lista);
         }
 
