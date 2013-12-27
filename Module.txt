@@ -3,7 +3,7 @@ AntiForgery: enabled
 Author: Piedone
 Website: http://backgroundtaskviewer.codeplex.com
 Version: 1.0
-OrchardVersion: 1.6
+OrchardVersion: 1.8
 Description: Displays actively running background tasks.
 Features:
     Piedone.BackgroundTaskViewer:
