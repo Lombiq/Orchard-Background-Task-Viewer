@@ -1,7 +1,7 @@
 ﻿Name: Background Task Viewer
 AntiForgery: enabled
 Author: Piedone
-Website: http://backgroundtaskviewer.codeplex.com
+Website: https://github.com/Lombiq/Orchard-Background-Task-Viewer
 Version: 1.0
 OrchardVersion: 1.8
 Description: Displays actively running background tasks.
